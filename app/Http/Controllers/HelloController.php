@@ -8,6 +8,19 @@ class HelloController extends Controller
 {
     //index
     function index(){
-        return view('chopunix');
+        $sample = "bbb";
+        //return view('chopunix')->with('sample',$sample);
+        // return view('chopunix')->with([
+        //     "sample" => "テスト1",
+        //     "sample2" => "テスト2",
+        //  ]);
+        // $sample1 = "テスト1";
+        // $sample2 = "テスト2";
+    
+        // return view('chopunix',compact('sample1','sample2'));
+
+        $sample = ["テスト1","テスト2", "テスト3"];
+
+        return view('chopunix',compact('sample'));
     }
 }

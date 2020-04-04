@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('chopunix');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/', 'HelloController@index');
+Route::get('chopunix', 'HelloController@index');
