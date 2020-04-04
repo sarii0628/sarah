@@ -10,7 +10,7 @@
         こんにちは
         <?php    
         foreach($sample as $s) {
-          echo  $s."\n";
+          echo  $s."<br>";
         }
         ?>
         @foreach($sample as $value)
