@@ -17,4 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('home', 'HomeController@index');
+
+Route::get('shop-info', 'InfoController@index');
+
+Route::get('products', 'ProductsController@index');
+
+Route::get('contact', 'ContactController@index');
+
+
+
+
 Route::get('chopunix', 'HelloController@index');
+
+Route::get('/top', 'PageController@top');
+Route::get('/about', 'PageController@about');
+Route::get('/ec', 'PageController@ec');
+Route::get('/test', 'PageController@test');
