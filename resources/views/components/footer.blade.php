@@ -2,15 +2,16 @@
 footer {text-align: center; padding-top: 20px;}
 footer .menu li {display: inline; margin-right: 20px;}
 .shop-info ul {list-style: none; text-align: right; padding-right: 10px;} 
+a {text-decoration: none; color: grey;}
 </style>
 
 
 <div class="menu">
     <ul>
-        <li>HOME</li>
-        <li>ショップ情報</li>
-        <li>オンラインショップ</li>
-        <li>問い合わせ</li>
+        <li><a href="/home">HOME</a></li>
+        <li><a href="/shop-info">ショップ情報</a></li>
+        <li><a href="/product">ONLINE SHOP</a></li>
+        <li><a href="/contact">問い合わせ</a></li>
     </ul>
 </div>
 <div class="shop-info">
