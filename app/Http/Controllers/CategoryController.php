@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest; 
+use App\Http\Requests\CategoryEditRequest;
 
 class CategoryController extends Controller
 {
@@ -19,11 +21,13 @@ class CategoryController extends Controller
         return view('category.add');
     }
 
-    public function create(Request $request)
+    public function create(CategoryRequest $request)
     {
-        $this->validate($request, Category::$rules);
         $category = new Category;
         $form = $request->all();
+        $path = $request->file('photo')->store('public/cat_img');
+        $form['img_name'] = basename($path);
+        unset($form['photo']);
         unset($form['_token']);
         $category->fill($form)->save();
         return redirect('/category');
@@ -35,12 +39,20 @@ class CategoryController extends Controller
         return view('category.edit', ['form' => $category]);
     }
 
-    public function update(Request $request)
+    public function update(CategoryEditRequest $request)
     {
-        $this->validate($request, Category::$rules);
         $category = Category::find($request->id);
         $form = $request->all();
+
+        if (isset($form['photo'])) {
+            $path = $request->file('photo')->store('public/cat_img');
+            $form['img_name'] = basename($path);
+        } else {
+            $form['img_name'] = $category->img_name;
+        }
+        unset($form['photo']);
         unset($form['_token']);
+
         $category->fill($form)->save();
         return redirect('/category');
     }

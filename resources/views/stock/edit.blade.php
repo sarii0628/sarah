@@ -12,7 +12,7 @@
         </ul>
     </div>
     @endif
-    <form action="/stock/edit" method="post">
+    <form action="/stock/edit" method="post"  enctype="multipart/form-data">
     <table>
         @csrf 
         <input type="hidden" name="id" value="{{$form->id}}">
@@ -20,11 +20,7 @@
             <th>商品名: </th>
             <td>
                 @foreach ($products as $product)
-                    @if ($product->id == $form->product_id)
-                        <input type="radio" name="product_id" value="{{$product->id}}" checked="checked">{{$product->name}}<br>
-                    @else
-                        <input type="radio" name="product_id" value="{{$product->id}}">{{$product->name}}<br>
-                    @endif
+                    <input type="radio" name="product_id" value="{{$product->id}}" {{($product->id == $form->product_id)? 'checked="checked"' : ''}} >{{$product->name}}<br>
                 @endforeach
             </td>
         </tr>
@@ -32,15 +28,20 @@
             <th>色: </th>
             <td>
                 @foreach ($colors as $color)
-                    @if ($color->id == $form->color_id)
-                        <input type="radio" name="color_id" value="{{$color->id}}" checked="checked">{{$color->name}}<br>
-                    @else
-                        <input type="radio" name="color_id" value="{{$color->id}}">{{$color->name}}<br>
-                    @endif
+                    <input type="radio" name="color_id" value="{{$color->id}}" {{($color->id == $form->color_id)? 'checked="checked"' : ''}}>{{$color->name}}<br>
                 @endforeach
             </td>
         </tr>
         <tr><th>個数： </th><td><input type="text" name="quantity" value="{{$form->quantity}}"></td></tr>
+        <tr>
+            <th>画像：　</th>
+            <td>
+                @if($form->img_name)
+                    <img src="{{asset('/storage/img/'.$form->img_name)}}" width="100" height="100">
+                @endif 
+                <input type="file" name="photo">
+            </td>
+        </tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </form>

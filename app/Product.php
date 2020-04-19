@@ -11,15 +11,6 @@ class Product extends Model
 
     protected $guarded = array('id');
 
-    public static $rules = array(
-        'name' => 'required',
-        'price' => 'required|integer',
-        'material' => 'required',
-        'is_handmade' => 'required',
-        'is_imported' => 'required',
-        'category_id' => 'required' 
-    );
-
     public function stocks()
     {
         return $this->hasMany('App\Stock');

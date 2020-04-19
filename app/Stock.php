@@ -11,13 +11,6 @@ class Stock extends Model
 
     protected $guarded = array('id');
 
-    public static $rules =  array(
-        'product_id' => 'required',
-        'quantity' => 'integer|required',
-        'color_id' => 'required',
-        'photo' => 'required|image'
-    );
-
     public function product()
     {
         return $this->belongsTo('App\Product');

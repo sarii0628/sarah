@@ -22,6 +22,8 @@ Route::get('home', 'HomeController@index');
 Route::get('shop-info', 'InfoController@index');
 
 Route::get('products', 'ProductsController@index');
+Route::get('products/category/{id}', 'ProductsController@show_category');
+Route::get('products/category/{category_id}/{product_id}', 'ProductsController@show_product');
 
 Route::get('contact', 'ContactController@index');
 

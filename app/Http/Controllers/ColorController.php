@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Color;
 use Illuminate\Http\Request;
+use App\Http\Requests\ColorRequest;
 
 class ColorController extends Controller
 {
@@ -19,9 +20,8 @@ class ColorController extends Controller
         return view('color.add');
     }
     
-    public function create(Request $request)
+    public function create(ColorRequest $request)
     {
-        $this->validate($request, Color::$rules);
         $color = new Color;
         $form = $request->all();
         unset($form['_token']);
@@ -35,9 +35,8 @@ class ColorController extends Controller
         return view('color.edit', ['form' => $color]);
     }
 
-    public function update(Request $request)
+    public function update(ColorRequest $request)
     {
-        $this->validate($request, Color::$rules);
         $color = Color::find($request->id);
         $form = $request->all();
         unset($form['_token']);

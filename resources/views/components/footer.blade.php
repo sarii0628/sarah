@@ -10,7 +10,7 @@ a {text-decoration: none; color: grey;}
     <ul>
         <li><a href="/home">HOME</a></li>
         <li><a href="/shop-info">ショップ情報</a></li>
-        <li><a href="/product">ONLINE SHOP</a></li>
+        <li><a href="/products">ONLINE SHOP</a></li>
         <li><a href="/contact">問い合わせ</a></li>
     </ul>
 </div>

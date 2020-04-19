@@ -11,11 +11,6 @@ class Color extends Model
 
     protected $guarded = array('id');
 
-    public static $rules = array(
-        'name' => 'required',
-        'code' => 'required|size: 7'
-    );
-
     public function stocks()
     {
         return $this->hasMany('App\Stock');

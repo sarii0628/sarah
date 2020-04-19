@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
+use App\Http\Requests\ProductEditRequest;
 
 class ProductController extends Controller
 {
@@ -21,9 +23,8 @@ class ProductController extends Controller
         return view('product.add', ['categories' => $categories]);
     }
 
-    public function create(Request $request)
+    public function create(ProductRequest $request)
     {
-        $this->validate($request, Product::$rules);
         $product = new Product;
         $form = $request->all();
         unset($form['_token']);
@@ -38,9 +39,8 @@ class ProductController extends Controller
         return view('product.edit', ['categories' => $categories, 'form' => $product]);
     }
 
-    public function update(Request $request)
+    public function update(ProductEditRequest $request)
     {
-        $this->validate($request, Product::$rules);
         $product = Product::find($request->id);
         $form = $request->all();
         unset($form['_token']);

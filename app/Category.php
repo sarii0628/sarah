@@ -11,10 +11,6 @@ class Category extends Model
     
     protected $guarded = array('id');
 
-    public static $rules = array(
-        'name' => 'required'
-    );
-
     public function products()
     {
         return $this->hasMany('App\Product');
