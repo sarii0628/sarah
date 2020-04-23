@@ -1,0 +1,5 @@
+footer {text-align: center; padding-top: 20px;}
+footer .menu li {display: inline; margin-right: 20px;}
+.shop-info ul {list-style: none; text-align: right; padding-right: 10px;} 
+footer li a {text-decoration: none; color: grey;}
+footer li a:hover {text-decoration: none; font-weight: bold; color: grey;}

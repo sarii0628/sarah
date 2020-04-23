@@ -11,8 +11,24 @@ class ColorController extends Controller
     //
     public function index(Request $request)
     {
-        $items = Color::all();
-        return view('color.index', ['items' => $items]);
+        $query = Color::query();
+
+        $keyword = $request->input('keyword');
+        if(!empty($keyword))
+        {
+            $query->where('name', 'like', '%'.$keyword.'%');
+        }
+
+        $sort = $request->sort;
+        if(!empty($sort))
+        {
+            $data = $query->orderBy($sort, 'asc')->paginate(5);
+        } else 
+        {
+            $data = $query->paginate(5);
+        }
+        
+        return view('color.index', ['items' => $data, 'keyword' => $keyword, 'sort' => $sort]);
     }
 
     public function add(Request $request)

@@ -12,8 +12,25 @@ class CategoryController extends Controller
     //
     public function index(Request $request)
     {
-        $items = Category::all();
-        return view('category.index', ['items' => $items]);
+        $keyword = $request->input('keyword');
+
+        $query = Category::query();
+
+        if(!empty($keyword))
+        {
+            $query->where('name', 'like', '%'.$keyword.'%');
+        }
+
+        $sort = $request->sort;
+        if(!empty($sort))
+        {
+            $data = $query->orderBy($sort, 'asc')->paginate(5);
+        } else 
+        {
+            $data = $query->paginate(5);
+        }
+        
+        return view('category.index', ['items' => $data, 'keyword' => $keyword, 'sort' => $sort]);
     }
 
     public function add(Request $request)

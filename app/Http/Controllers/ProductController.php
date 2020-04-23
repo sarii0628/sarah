@@ -13,8 +13,24 @@ class ProductController extends Controller
     //
     public function index(Request $request)
     {
-        $items = Product::all();
-        return view('product.index', ['items' => $items]);
+        $query = Product::query();
+
+        $keyword = $request->input('keyword');
+        if(!empty($keyword))
+        {
+            $query->where('name', 'like', '%'.$keyword.'%')->orWhere('material', 'like', '%'.$keyword.'%');
+        }
+
+        $sort = $request->sort;
+        if(!empty($sort))
+        {
+            $data = $query->orderBy($sort, 'asc')->paginate(5);
+        } else 
+        {
+            $data = $query->paginate(5);
+        }
+        
+        return view('product.index', ['items' => $data, 'keyword' => $keyword, 'sort' => $sort]);
     }
 
     public function add(Request $request)

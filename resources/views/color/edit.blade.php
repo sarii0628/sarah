@@ -1,4 +1,4 @@
-@extends('layouts.sarah')
+@extends('layouts.admin')
 
 @section('title', '色 編集')
 
@@ -13,6 +13,7 @@
     </div>
     @endif
     <form action="/color/edit" method="post">
+    <div class="table-container">
     <table>
         @csrf 
         <input type="hidden" name="id" value="{{$form->id}}">
@@ -20,6 +21,7 @@
         <tr><th>code: </th><td><input type="text" name="code" value="{{$form->code}}"></td></tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
+    </div>
     </form>
 @endsection
 

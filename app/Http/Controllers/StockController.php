@@ -14,8 +14,24 @@ class StockController extends Controller
     //
     public function index(Request $request)
     {
-        $items = Stock::all();
-        return view('stock.index', ['items' => $items]);
+        $query = Stock::query();
+
+        $keyword = $request->input('keyword');
+        if(!empty($keyword))
+        {
+            $query->where('name', 'like', '%'.$keyword.'%');
+        }
+
+        $sort = $request->sort;
+        if(!empty($sort))
+        {
+            $data = $query->orderBy($sort, 'asc')->paginate(5);
+        } else 
+        {
+            $data = $query->paginate(5);
+        }
+        
+        return view('stock.index', ['items' => $data, 'keyword' => $keyword, 'sort' => $sort]);
     }
 
     public function add(Request $request)

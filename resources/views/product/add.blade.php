@@ -1,4 +1,4 @@
-@extends('layouts.sarah')
+@extends('layouts.admin')
 
 @section('title', '商品 追加')
 
@@ -13,6 +13,7 @@
     </div>
     @endif
     <form action="/product/add" method="post">
+    <div class="table-container">
     <table>
         @csrf 
         <tr>
@@ -56,6 +57,7 @@
         
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
+    </div>
     </form>
 @endsection
 

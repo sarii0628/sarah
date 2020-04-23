@@ -18,9 +18,24 @@ class ProductsController extends Controller
 
     public function show_category(Request $request, $id) {
         $category = Category::find($id);
-        $products = Product::where('category_id', $id)->get();
+        $query = Product::where('category_id', $id);
 
-        return view('products.cat_details.index', ['category' => $category, 'products' => $products]);
+        $keyword = $request->input('keyword');
+        if(!empty($keyword))
+        {
+            $query->where('name', 'like', '%'.$keyword.'%');
+        }
+
+        $sort = $request->sort;
+        if(!empty($sort))
+        {
+            $data = $query->orderBy($sort, 'asc')->paginate(5);
+        } else 
+        {
+            $data = $query->paginate(5);
+        }
+        
+        return view('products.cat_details.index', ['category' => $category, 'items' => $data, 'keyword' => $keyword, 'sort' => $sort]);
     }
 
     public function show_product(Request $request, $category_id, $product_id) {

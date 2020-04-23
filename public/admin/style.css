@@ -1,0 +1,13 @@
+.table-container {text-align: center;}
+.table-container table {margin: 20px auto;}
+.table-container th {background-color:#999; color:fff; padding:5px 10px;}
+.table-container td {border: solid 1px #aaa; color:#999; padding:5px 10px;}
+
+.search-form form {display: inline; text-align:right;}
+
+.paginate {text-align: center;}
+.paginate li {display: inline-block;}
+
+
+#admin-nav ul {margin: 20px auto 50px ; width: 80%;} 
+#admin-nav ul li {list-style: none; display: inline; margin: 20px;}

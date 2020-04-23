@@ -1,9 +1,10 @@
-@extends('layouts.sarah')
+@extends('layouts.admin')
 
 @section('title', '在庫 追加確認')
 
 @section('content')
     <form action="/stock/finish" method="post">
+    <div class="table-container">
     <table>
         @csrf 
         <input type="hidden" name="product_id" value="{{$product_id}}">
@@ -25,6 +26,7 @@
         <tr><th>個数： </th><td>{{$form->quantity}}</td></tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
+    </div>
     </form>
 @endsection
 

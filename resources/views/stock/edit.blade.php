@@ -1,4 +1,4 @@
-@extends('layouts.sarah')
+@extends('layouts.admin')
 
 @section('title', '在庫 編集')
 
@@ -13,6 +13,7 @@
     </div>
     @endif
     <form action="/stock/edit" method="post"  enctype="multipart/form-data">
+    <div class="table-container">
     <table>
         @csrf 
         <input type="hidden" name="id" value="{{$form->id}}">
@@ -44,6 +45,7 @@
         </tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
+    </div>
     </form>
 @endsection
 
