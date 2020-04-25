@@ -15,24 +15,24 @@
     @if ($product !== null)
         <div class="product-wrapper">
         
-            <div class="product-item"> 
+            <div class="product-item container-fluid"> 
                 
-                    <div class="slider">
+                    <div class="slider-container col-md-6">
                         <div class="slides">
                         @if(isset($images))
                             @php
                                 $count = 1; 
                             @endphp 
-                            
+                            <ul class="slider">
                             @foreach($images as $id => $img_name)
-                                <div id="slide-{{$count}}">
-                                    <img src="{{asset('/storage/img/'.$img_name)}}" width="400" height="400">
-                                </div>
+                                
+                                <div class="img_block"><li><img src="{{asset('/storage/img/'.$img_name)}}" width="400" height="400"></li></div>
+                                
                                 @php 
                                     $count ++;
                                 @endphp
                             @endforeach
-                            
+                            </ul>
                         @else 
                             <img src="{{asset('/storage/no-image.png')}}" width="400" height="400">
                         @endif 
@@ -40,7 +40,7 @@
                         
                     </div>
                     
-                    <div class="desc">
+                    <div class="desc col-md-5">
                         <table>
                         <tr><th>商品名：</th><td>{{$product->name}}</td></tr>
                         <tr><th>値段：</th><td>¥{{$product->price}}</td></tr>
@@ -62,7 +62,41 @@
                         </tr>
                         </table>
 
-                        <a href="/cart/add/{{$category->id}}/{{$product->id}}"><button type="button" class="btn btn-warning"><i class="fas fa-cart-arrow-down fa-2x faa-wrench animated"></i></button></a>
+                        <div id="cart-input">
+
+                            <form action="/cart/add" method="post" >
+                            @csrf
+                            <input type="hidden" name="category_id" value="{{$category->id}}">
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
+                            <div class="row" id="selects">
+                                @if(isset($colors))  
+                                <div class="col-md-6 col-md-offset-1" id="color-selects">
+                                    @foreach ($colors as $stock_id => $color)
+                
+                                        <input type="radio" name="stock_id" value="{{$stock_id}}" id="color-select" >{{$color->name}}
+                                        <i class="fas fa-paint-brush fa-lg " style="color: {{$color->code}};"></i><br>
+                                    
+                                    @endforeach
+                                </div>
+                                @endif
+                                <div class="col-md-3" >
+                                    <input type="number" name="qty" value="1" id="num-select">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10 col-md-offset-1">
+                                    <button type="submit" class="btn btn-warning" id="cart-button">
+                                        <i class='fas fa-cart-arrow-down fa-2x faa-wrench animated'></i>
+                                    </button>
+                                </div>
+                            </div>
+                                
+                            
+
+                            </form>
+
+                        </div>
+                        
                     </div>
                 
             </div>

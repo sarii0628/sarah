@@ -40,12 +40,13 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest:user')->except('logout');
+
     }
 
-    // protected function authenticated()
-    // {
-    //     return redirect()->intended();
-    // }
+    protected function authenticated()
+    {
+        return redirect()->intended('user/home');
+    }
 
     protected function redirectTo()
     {
@@ -59,6 +60,10 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+        if(!session()->has('url.intended'))
+        {
+        session(['url.intended' => url()->previous()]);
+        }
         return view('user.auth.login');
     }
 
@@ -71,6 +76,10 @@ class LoginController extends Controller
 
     public function loggedOut(Request $request)
     {
-        return redirect(route('user.login'));
+        if(!session()->has('url.intended'))
+        {
+        session(['url.intended' => url()->previous()]);
+        }
+        return redirect()->intended(route('user.login'));
     }
 }

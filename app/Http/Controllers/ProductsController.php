@@ -45,6 +45,9 @@ class ProductsController extends Controller
         foreach($stocks as $stock){
             $images[$stock->id] = $stock->img_name; 
         }
-        return view('products.product_details.index', ['category' => $category, 'product' => $product, 'images' => $images]);
+        foreach($stocks as $stock){
+            $colors[$stock->id] = $stock->color;
+        }
+        return view('products.product_details.index', ['category' => $category, 'product' => $product, 'images' => $images, 'colors' => $colors]);
     }
 }

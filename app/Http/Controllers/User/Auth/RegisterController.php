@@ -52,8 +52,25 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
+        if(isset($_SERVER['HTTP_REFERER'])) {
+            $intended = $_SERVER['HTTP_REFERER'];
+        } else {
+            $intended = '/';
+        }
+        
+        session(['url.intended' => $intended]);
+        
         return view('user.auth.register');
     }
+
+    protected function registered() 
+    {
+        $intended = session('url.intended');
+
+        return redirect($intended);
+    }
+
+    
 
     /**
      * Get a validator for an incoming registration request.

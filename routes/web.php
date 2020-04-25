@@ -27,9 +27,7 @@ Route::get('products/category/{category_id}/{product_id}', 'ProductsController@s
 
 Route::middleware('auth:user')->group(function () {
 
-    Route::get('cart/add/{category_id}/{product_id}', function ($category_id, $product_id){
-        return view('cart.index', ['category_id' => $category_id, 'product_id' => $product_id]);
-    });
+    Route::post('cart/add', 'CartController@addToCart');
 });
 
 
