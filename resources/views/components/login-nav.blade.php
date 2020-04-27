@@ -13,7 +13,7 @@
         @endguest
         @auth('user')
         <div class="col-md-8">
-        <span><a href=""><button type="button" class="btn btn-info"><strong>{{ Auth::user()->name }} </strong>さんのカート <i class="fas fa-shopping-cart"></i></button></a></span>
+        <span><a href="/cart/index"><button type="button" class="btn btn-info"><strong>{{ Auth::user()->name }} </strong>さんのカート <i class="fas fa-shopping-cart"></i></button></a></span>
         </div>  
         <div class="col-md-4">
         <form action="{{ route('user.logout') }}" method="post">@csrf<input class="btn btn-success" type="submit" value="ログアウト"></form>

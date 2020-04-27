@@ -28,6 +28,11 @@ Route::get('products/category/{category_id}/{product_id}', 'ProductsController@s
 Route::middleware('auth:user')->group(function () {
 
     Route::post('cart/add', 'CartController@addToCart');
+    Route::get('cart/index', 'CartController@index');
+    Route::post('cart/remove', 'CartController@remove');
+    Route::post('cart/plus', 'CartController@plus');
+    Route::post('cart/minus', 'CartController@minus');
+    Route::post('cart/confirm', 'CartController@confirm');
 });
 
 

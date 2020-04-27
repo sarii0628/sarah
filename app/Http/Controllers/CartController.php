@@ -30,10 +30,10 @@ class CartController extends Controller
 
         $items = Cart::getContent();
 
-        $category_id = $request->category_id;
-        $product_id = $request->product_id;
+        $total = Cart::getSubTotal();
 
-        return view('cart.index', ["items" => $items, "category_id" => $category_id, "product_id" => $product_id]);
+
+        return view('cart.index', ["items" => $items, 'total' => $total]);
     }
 
     public function index(Request $request)
@@ -41,9 +41,59 @@ class CartController extends Controller
         $userId = auth()->user()->id;
         Cart::session($userId);
 
-        $cartCollection = Cart::getContent();
+        $items = Cart::getContent();
         $total = Cart::getSubTotal();
 
-        return view('cart.index', ['cartItems' => $cartCollection, 'total' => $total]);
+        $isEmpty = Cart::isEmpty();
+
+        return view('cart.index', ['items' => $items, 'total' => $total, 'isEmpty' => $isEmpty]);
+    }
+
+    public function plus(Request $request)
+    {
+        $userId = auth()->user()->id;
+        Cart::session($userId);
+
+        Cart::update($request->id, array(
+            'quantity' => 1,
+        ));
+
+
+        return redirect('/cart/index');
+    }
+
+    public function minus(Request $request)
+    {
+        $userId = auth()->user()->id;
+        Cart::session($userId);
+
+        Cart::update($request->id, array(
+            'quantity' => -1,
+        ));
+
+        return redirect('/cart/index');
+    }
+
+    public function remove(Request $request)
+    {
+        $userId = auth()->user()->id;
+        Cart::session($userId)->remove($request->id);
+
+        return redirect('/cart/index');
+    }
+
+    public function confirm(Request $request)
+    {
+        $userId = auth()->user()->id;
+        Cart::session($userId)->remove($request->id);
+
+        $items = Cart::getContent();
+        $total = Cart::getSubTotal();
+
+        if(Cart::isEmpty()){
+            return redirect('/cart/index');
+        }
+
+        return view('cart.confirm', ['items' => $items, 'total' => $total]);
     }
 }

@@ -17,7 +17,7 @@
         
             <div class="product-item container-fluid"> 
                 
-                    <div class="slider-container col-md-6">
+                    <div class="slider-container col-md-5">
                         <div class="slides">
                         @if(isset($images))
                             @php
@@ -40,12 +40,14 @@
                         
                     </div>
                     
-                    <div class="desc col-md-5">
+                    <div class="desc col-md-6">
                         <table>
                         <tr><th>商品名：</th><td>{{$product->name}}</td></tr>
                         <tr><th>値段：</th><td>¥{{$product->price}}</td></tr>
                         <tr><th>素材：</th><td>{{$product->material}}</td></tr>
+                        @if(isset($product->size_cm))
                         <tr><th>サイズ(cm)：</th><td>{{$product->size_cm}}</td></tr>
+                        @endif
                         <tr>
                             <th>詳細説明：</th>
                             <td>
