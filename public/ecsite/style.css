@@ -73,7 +73,7 @@ h2:nth-child(2) {margin-bottom: 50px;}
 /* cart pages */
 #cart-content table {margin-top: 30px; margin-bottom: 60px;}
 #cart-content form {display: inline;}
-#cart-content .btn-circle {width:22px; height:22px; border-radius:11px; text-align:center; padding-left: 4px;}
+#cart-content .btn-circle {font-size: 11pt; width:22px; height:22px; border-radius:11px; text-align:center; padding-left: 4px;}
 #cart-content p {margin: 10px auto;}
 #cart-content th {text-align: center;}
 #cart-content td {vertical-align: middle; text-align: center;}
