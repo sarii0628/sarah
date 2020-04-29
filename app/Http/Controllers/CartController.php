@@ -8,6 +8,8 @@ use App\Stock;
 
 use Cart;
 
+use Auth;
+
 class CartController extends Controller
 {
     //
@@ -93,6 +95,11 @@ class CartController extends Controller
         if(Cart::isEmpty()){
             return redirect('/cart/index');
         }
+
+        $username = Auth::user()->name;
+        $address = Auth::user()->email;
+
+        app()->call(ConfirmMailController::class . '@confirmMail', ['name' => $username, 'total' =>  $total, 'to' => $address ]);
 
         return view('cart.confirm', ['items' => $items, 'total' => $total]);
     }

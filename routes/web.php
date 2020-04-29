@@ -110,3 +110,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
 
     });
 });
+
+Route::get('sample/mailable/preview', function () {
+    return  new App\Mail\SampleNotification();
+});
