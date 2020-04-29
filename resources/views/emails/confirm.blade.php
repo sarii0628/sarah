@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 <style>
-
+#confirm {margin-bottom: 70px;}
 </style>
 <body>
     
@@ -12,7 +12,8 @@
 <h2>{{$name}} さま</h2>
 <p>Sarahの商品を注文いただきありがとうございます。</p> 
 <p>ご注文商品の合計金額は <span class="look">{{$total}}</span> 円です。</p>
-<p><span class="look">銀行振込</span>にてお支払いお願いいたします。</p>  
+<p><span class="look">銀行振込</span>にてお支払いお願いいたします。</p> 
+<br> 
 <div class="container-md mb-5" id="cart-content">
     <div class="row">
         <div class="col-md-8">
@@ -24,6 +25,6 @@
     </div>
 </div>
 </div>
-
+<br>
 
 Sarah

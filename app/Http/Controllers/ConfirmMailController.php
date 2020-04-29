@@ -13,7 +13,10 @@ class ConfirmMailController extends Controller
 {
     //
     public function confirmMail($name, $total, $to)
-    {
-        Mail::to($to)->send(new Confirm($name, $total));
+    {   
+        $admin = '9mm.p.bull@gmail.com';
+        Mail::to($to)
+            ->cc($admin)
+            ->send(new Confirm($name, $total));
     }
 }

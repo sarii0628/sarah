@@ -40,7 +40,9 @@ Route::get('cart/confirm', function() {
     return view('cart.confirm');
 });
 
-Route::get('contact', 'ContactController@index');
+Route::get('contact', 'ContactController@index')->name('contact.index');
+Route::post('contact/confirm', 'ContactController@confirm')->name('contact.confirm');
+Route::post('contact/thanks', 'ContactController@send')->name('contact.send');
 
 
 //Admin after logged-in

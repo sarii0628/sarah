@@ -80,6 +80,6 @@ class LoginController extends Controller
         {
         session(['url.intended' => url()->previous()]);
         }
-        return redirect()->intended(route('user.login'));
+        return redirect('/top');
     }
 }

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('/footer/style.css')}}">
     <link rel="stylesheet" href="{{asset('/ecsite/style.css')}}">
     <link rel="stylesheet" href="{{asset('/admin/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/contacts/style.css')}}">
     <link rel="stylesheet" href="{{asset('/breadcrumbs/style.css')}}">
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>

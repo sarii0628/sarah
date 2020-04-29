@@ -101,6 +101,10 @@ class CartController extends Controller
 
         app()->call(ConfirmMailController::class . '@confirmMail', ['name' => $username, 'total' =>  $total, 'to' => $address ]);
 
+        $request->session()->regenerateToken();
+
+        Cart::clear();
+
         return view('cart.confirm', ['items' => $items, 'total' => $total]);
     }
 }
