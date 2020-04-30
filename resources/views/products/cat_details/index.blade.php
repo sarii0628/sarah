@@ -22,8 +22,8 @@
             <div class="products-item"> 
                 <a href="/products/category/{{$category->id}}/{{$product->id}}">
                     <div class="image">
-                    @if(isset($product->stocks->first()->img_name))
-                        <img src="{{asset('/storage/img/'.$product->stocks->first()->img_name)}}" width=100% height=100%>
+                    @if(isset($product->stocks->first()->images))
+                        <img src="{{asset('/storage/img/'.$product->stocks->first()->images->first()->path)}}" width=100% height=100%>
                     @else 
                         <img src="{{asset('/storage/no-image.png')}}" width=100% height=100%>
                     @endif 

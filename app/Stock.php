@@ -21,6 +21,11 @@ class Stock extends Model
         return $this->belongsTo('App\Color');
     }
 
+    public function images()
+    {
+        return $this->hasMany('App\Image');
+    }
+
     public function getData()
     {
         return 'ID： ' . $this->id . '　｜　商品： ' . $this->product->name 

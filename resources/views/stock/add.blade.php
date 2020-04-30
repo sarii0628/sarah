@@ -13,7 +13,7 @@
     </div>
     @endif
     <form action="/stock/add" method="post" enctype="multipart/form-data">
-    <div class="table-container">
+    <div class="table-container admin">
     <table>
         @csrf 
         <tr>
@@ -21,7 +21,7 @@
             <td>
                 @foreach ($products as $product)
                     <p>
-                    <input type="radio" name="product_id" value="{{$product->id}}">{{$product->name}}
+                    <label><input type="radio" name="product_id" value="{{$product->id}}">{{$product->name}}</label>
                     </p>
                 @endforeach
             </td>
@@ -31,13 +31,13 @@
             <td>
                 @foreach ($colors as $color)
                     <p>
-                    <input type="radio" name="color_id" value="{{$color->id}}">{{$color->name}}
+                    <label><input type="radio" name="color_id" value="{{$color->id}}">{{$color->name}}</label>
                     </p>
                 @endforeach
             </td>
         </tr>
         <tr><th>個数： </th><td><input type="text" name="quantity" value="{{old('quantity')}}"></td></tr>
-        <tr><th>画像：　</th><td><input type="file" name="photo"></td></tr>
+        <tr><th>画像：　</th><td><input type="file" name="files[][photo]" multiple></td></tr>
         <tr><th></th><td><input type="submit" value="send"></td></tr>
     </table>
     </div>

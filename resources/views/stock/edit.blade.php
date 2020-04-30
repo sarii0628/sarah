@@ -13,7 +13,7 @@
     </div>
     @endif
     <form action="/stock/edit" method="post"  enctype="multipart/form-data">
-    <div class="table-container">
+    <div class="table-container admin">
     <table>
         @csrf 
         <input type="hidden" name="id" value="{{$form->id}}">
@@ -21,7 +21,7 @@
             <th>商品名: </th>
             <td>
                 @foreach ($products as $product)
-                    <input type="radio" name="product_id" value="{{$product->id}}" {{($product->id == $form->product_id)? 'checked="checked"' : ''}} >{{$product->name}}<br>
+                    <label><input type="radio" name="product_id" value="{{$product->id}}" {{($product->id == $form->product_id)? 'checked="checked"' : ''}} >{{$product->name}}</label><br>
                 @endforeach
             </td>
         </tr>
@@ -29,7 +29,7 @@
             <th>色: </th>
             <td>
                 @foreach ($colors as $color)
-                    <input type="radio" name="color_id" value="{{$color->id}}" {{($color->id == $form->color_id)? 'checked="checked"' : ''}}>{{$color->name}}<br>
+                    <label><input type="radio" name="color_id" value="{{$color->id}}" {{($color->id == $form->color_id)? 'checked="checked"' : ''}}>{{$color->name}}</label><br>
                 @endforeach
             </td>
         </tr>
@@ -37,13 +37,19 @@
         <tr>
             <th>画像：　</th>
             <td>
-                @if($form->img_name)
-                    <img src="{{asset('/storage/img/'.$form->img_name)}}" width="100" height="100">
+                @if($form->images)
+                    @foreach($form->images as $image)
+                    <img src="{{asset('/storage/img/'.$image->path)}}" width="100" height="100">
+
+                        <input type="hidden" name="image_id" value="{{$image->id}}">
+                        <input type="submit" value="画像削除" name="del_photo">
+                    
+                    @endforeach
                 @endif 
-                <input type="file" name="photo">
+                <input type="file" name="files[][photo]" multiple>
             </td>
         </tr>
-        <tr><th></th><td><input type="submit" value="send"></td></tr>
+        <tr><th></th><td><input type="submit" value="送信" name="update"></td></tr>
     </table>
     </div>
     </form>

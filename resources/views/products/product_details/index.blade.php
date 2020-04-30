@@ -20,17 +20,13 @@
                     <div class="slider-container col-md-5">
                         <div class="slides">
                         @if(isset($images))
-                            @php
-                                $count = 1; 
-                            @endphp 
+
                             <ul class="slider">
-                            @foreach($images as $id => $img_name)
+                            @foreach($images as $stock_id => $image)
                                 
-                                <div class="img_block"><li><img src="{{asset('/storage/img/'.$img_name)}}" width="400" height="400"></li></div>
-                                
-                                @php 
-                                    $count ++;
-                                @endphp
+                                @foreach($image as $image_id => $path)
+                                    <div class="img_block"><li><img src="{{asset('/storage/img/'.$path)}}" width="400" height="400"></li></div>
+                                @endforeach
                             @endforeach
                             </ul>
                         @else 
@@ -72,11 +68,11 @@
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="row" id="selects">
                                 @if(isset($colors))  
-                                <div class="col-md-6 col-md-offset-1" id="color-selects">
+                                <div class="col-md-7 col-md-offset-1" id="color-selects">
                                     @foreach ($colors as $stock_id => $color)
                 
-                                        <input type="radio" name="stock_id" value="{{$stock_id}}" id="color-select" >{{$color->name}}
-                                        <i class="fas fa-paint-brush fa-lg " style="color: {{$color->code}};"></i><br>
+                                        <label><input type="radio" name="stock_id" value="{{$stock_id}}" id="color-select" >{{$color->name}}
+                                        <i class="fas fa-paint-brush fa-lg " style="color: {{$color->code}};"></i></label><br>
                                     
                                     @endforeach
                                 </div>

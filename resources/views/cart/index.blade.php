@@ -20,7 +20,7 @@
                 @if(isset($items))
                 @foreach($items as $item)
                 <tr>
-                    <td><p><img src="{{asset('/storage/img/'.$item->associatedModel->img_name)}}" width="100" height="100"></p>{{$item->name}}</td>
+                    <td><p><img src="{{asset('/storage/img/'.$item->associatedModel->images->first()->path)}}" width="100" height="100"></p>{{$item->name}}</td>
                     <td>{{$item->price}}円</td>
                     <td>
                         {{$item->quantity}}個

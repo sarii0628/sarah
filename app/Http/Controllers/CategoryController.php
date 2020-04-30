@@ -82,7 +82,9 @@ class CategoryController extends Controller
 
     public function remove(Request $request)
     {
-        Category::find($request->id)->delete();
+        $category = Category::find($request->id);
+        Storage::delete('public/cat_img'.$category->img_name);
+        $category->delete();
         return redirect('/category');
     }
 }

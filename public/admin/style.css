@@ -11,3 +11,7 @@
 
 #admin-nav ul {margin: 20px auto 50px ; width: 80%;} 
 #admin-nav ul li {list-style: none; display: inline; margin: 20px;}
+
+.admin p:first-child {margin-bottom: 10px;}
+
+.admin label {font-weight: normal;}

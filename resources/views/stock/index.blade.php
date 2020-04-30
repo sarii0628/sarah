@@ -15,9 +15,11 @@
         <tr>
             <td>{{$item->getData()}}</td>
             <td>
-            @if(isset($item->img_name))
-            <img src="{{asset('/storage/img/'.$item->img_name)}}" width="100" height="100">
-            @endif 
+            @if($item->images != null)
+            @foreach ($item->images as $img)
+            <img src="{{asset('/storage/img/'.$img->path)}}" width="100" height="100">
+            @endforeach
+            @endif
             </td>
             <td>
                 <a href="/stock/edit?id={{$item->id}}">

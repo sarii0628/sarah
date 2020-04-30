@@ -43,11 +43,15 @@ class ProductsController extends Controller
         $product = Product::find($product_id);
         $stocks = $product->stocks()->get();
         foreach($stocks as $stock){
-            $images[$stock->id] = $stock->img_name; 
+            $images = $stock->images()->get();
+
+            foreach($images as $image){
+            $pics[$stock->id][$image->id] = $image->path; 
+            }
         }
         foreach($stocks as $stock){
             $colors[$stock->id] = $stock->color;
         }
-        return view('products.product_details.index', ['category' => $category, 'product' => $product, 'images' => $images, 'colors' => $colors]);
+        return view('products.product_details.index', ['category' => $category, 'product' => $product, 'images' => $pics, 'colors' => $colors]);
     }
 }

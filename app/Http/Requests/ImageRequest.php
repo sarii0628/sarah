@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StockRequest extends FormRequest
+class ImageRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,6 @@ class StockRequest extends FormRequest
     {
         return [
             //
-            'product_id' => 'required',
-            'quantity' => 'integer|required',
-            'color_id' => 'required',
-            'files.*.photo' => 'required|image'
         ];
     }
 }
