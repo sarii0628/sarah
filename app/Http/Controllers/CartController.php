@@ -43,7 +43,8 @@ class CartController extends Controller
         $userId = auth()->user()->id;
         Cart::session($userId);
 
-        $items = Cart::getContent();
+        $cartCollection = Cart::getContent();
+        $items = $cartCollection->sortBy('name');
         $total = Cart::getSubTotal();
 
         $isEmpty = Cart::isEmpty();
