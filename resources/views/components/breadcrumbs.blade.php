@@ -1,4 +1,4 @@
-<div class="row">
+<div class="sub-container">
 @if (count($breadcrumbs))
     <ul class="breadcrumb">
         @foreach ($breadcrumbs as $breadcrumb)

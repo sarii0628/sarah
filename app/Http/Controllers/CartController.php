@@ -30,7 +30,8 @@ class CartController extends Controller
             
         ]);
 
-        $items = Cart::getContent();
+        $cartCollection = Cart::getContent();
+        $items = $cartCollection->sortBy('name');
 
         $total = Cart::getSubTotal();
 
@@ -90,7 +91,8 @@ class CartController extends Controller
         $userId = auth()->user()->id;
         Cart::session($userId)->remove($request->id);
 
-        $items = Cart::getContent();
+        $cartCollection = Cart::getContent();
+        $items = $cartCollection->sortBy('name');
         $total = Cart::getSubTotal();
 
         if(Cart::isEmpty()){
@@ -100,7 +102,7 @@ class CartController extends Controller
         $username = Auth::user()->name;
         $address = Auth::user()->email;
 
-        app()->call(ConfirmMailController::class . '@confirmMail', ['name' => $username, 'total' =>  $total, 'to' => $address ]);
+        app()->call(ConfirmMailController::class . '@confirmMail', ['name' => $username, 'items' => $items, 'total' =>  $total, 'to' => $address ]);
 
         $request->session()->regenerateToken();
 

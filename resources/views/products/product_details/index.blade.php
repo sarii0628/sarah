@@ -10,14 +10,14 @@
 
 @section('content')
     <p>Sarahの商品は、オンラインでも販売をしております。</p>
-
+   
     <h2>{{$category->name}} カテゴリー　｜ {{$product->name}}</h2>
     @if ($product !== null)
         <div class="product-wrapper">
         
-            <div class="product-item container-fluid"> 
+            <div class="product-item"> 
                 
-                    <div class="slider-container col-md-5">
+                    <div class="slider-container">
                         <div class="slides">
                         @if(isset($images))
 
@@ -36,7 +36,7 @@
                         
                     </div>
                     
-                    <div class="desc col-md-6">
+                    <div class="desc">
                         <table>
                         <tr><th>商品名：</th><td>{{$product->name}}</td></tr>
                         <tr><th>値段：</th><td>¥{{$product->price}}</td></tr>
@@ -68,7 +68,7 @@
                             <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="row" id="selects">
                                 @if(isset($colors))  
-                                <div class="col-md-7 col-md-offset-1" id="color-selects">
+                                <div class="col-md-7 col-md-offset-1 col-xs-6 col-xs-offset-1" id="color-selects">
                                     @foreach ($colors as $stock_id => $color)
                 
                                         <label><input type="radio" name="stock_id" value="{{$stock_id}}" id="color-select" >{{$color->name}}
@@ -77,8 +77,8 @@
                                     @endforeach
                                 </div>
                                 @endif
-                                <div class="col-md-3" >
-                                    <input type="number" name="qty" value="1" id="num-select">
+                                <div class="col-md-3 col-xs-3 num-select-wrapper">
+                                    <input type="number" name="qty" value="1" id="num-select" place-holder="個数">
                                 </div>
                             </div>
                             <div class="row">

@@ -4,7 +4,7 @@
                 background-color: rgba(255,255,255,0.3);}
 .sidebar ul {list-style: none;}
 .sidebar>ul>li {margin-top: 20px; padding: 10px 5px; color: black;
-                 text-align: center; font-size: 18px;
+                 text-align: center; font-size: 1.5rem; letter-spacing: 1px;
                  background-image: url("../storage/stone.png"); background-size: 100% 60%; 
                  background-repeat: no-repeat; background-position: center bottom;
                  background-color: rgba(255,255,255,0.5); background-blend-mode: lighten;}

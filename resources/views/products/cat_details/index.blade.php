@@ -14,7 +14,7 @@
 
 @section('content')
     <p>Sarahの商品は、オンラインでも販売をしております。</p>
-    
+    @yield('search-form')
     <h2>{{$category->name}} カテゴリー　｜ 商品一覧</h2>
     @if ($items !== null)
         <div class="products-wrapper">

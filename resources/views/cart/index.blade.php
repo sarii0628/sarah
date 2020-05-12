@@ -9,7 +9,7 @@
 
 @section('content')
 <h2>カートの中身</h2> 
-<div class="container-md mb-5" id="cart-content">
+<div class="" id="cart-content">
     <div class="row">
         <div class="col-md-8">
         @if(isset($isEmpty) && $isEmpty)
@@ -24,7 +24,8 @@
                     <td>{{$item->price}}円</td>
                     <td>
                         {{$item->quantity}}個
-                        <form action="/cart/plus" method="post">
+                        <div class="plus-minus">
+                        <form action="/cart/plus" method="post" class="plus-minus">
                         @csrf
                         <input type="hidden" name="id" value="{{$item->id}}">
                         <button type="submit" class="btn-circle btn-warning"><i class="fas fa-plus"></i></button> 
@@ -35,6 +36,7 @@
                         <input type="hidden" name="id" value="{{$item->id}}">
                         <button type="submit" class="btn-circle btn-info"><i class="fas fa-minus"></i></button> 
                         </form>
+                        </div>
                     </td>
                     <td>{{$item->price * $item->quantity}}円</td>
                     <td>
@@ -55,7 +57,7 @@
             </table>
             @endif
             <div class="row">
-                <div class="col-md-3 col-md-offset-3">
+                <div class="col-md-4 col-md-offset-3 col-sm-3 col-sm-offset-3 col-xs-4 col-xs-offset-1">
                     @if(preg_match( '/products/',  url()->previous() ))
                     <a href="{{url()->previous()}}">
                     @else
@@ -64,7 +66,7 @@
                     <button type="button" class="btn btn-warning">
                     買い物を続ける</button></a>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4 col-sm-3 col-xs-4 col-xs-offset-1">
                     <form action="/cart/confirm" method="post">
                         @csrf
                         <button type="submit" class="btn btn-danger">購入確認画面</button>

@@ -12,11 +12,11 @@ use Cart;
 class ConfirmMailController extends Controller
 {
     //
-    public function confirmMail($name, $total, $to)
+    public function confirmMail($name, $items, $total, $to)
     {   
         $admin = '9mm.p.bull@gmail.com';
         Mail::to($to)
             ->cc($admin)
-            ->send(new Confirm($name, $total));
+            ->send(new Confirm($name, $total, $items));
     }
 }

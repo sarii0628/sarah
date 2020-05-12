@@ -9,7 +9,7 @@
         @csrf 
 
         <div class="form-group">
-            <label for="" class="col-md-4 control-label">メールアドレス</label>
+            <label for="" class="col-md-4 control-label">メールアドレス：</label>
             <div class="col-md-8">
                 <input type="text" name="email" id="" value="{{old('email')}}">
                 @if($errors->has('email'))
@@ -19,7 +19,8 @@
         </div>
 
         <div class="form-group">
-            <label for="" class="col-md-4 control-label">タイトル</label>
+            <label for="" class="col-md-4 control-label">タイトル：
+            </label>
             <div class="col-md-8">
                 <input type="text" name="title" id="" value="{{old('title')}}">
                 @if($errors->has('title'))
@@ -29,7 +30,8 @@
         </div>
 
         <div class="form-group">
-            <label for="" class="col-md-4 control-label">お問い合わせ内容</label>
+            <label for="" class="col-md-4 control-label">お問い合わせ内容：
+            </label>
             <div class="col-md-8">
                 <textarea name="body" id="" cols="30" rows="10">{{old('body')}}</textarea>
                 @if($errors->has('body'))
@@ -39,8 +41,8 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-4 col-sm-8">
-                <button type="submit" class="btn btn-info">入力内容確認</button>
+            <div class="col-md-offset-4 btn-wrapper">
+                <button type="submit" class="btn btn-info submit-btn">入力内容確認</button>
             </div>
         </div>
             

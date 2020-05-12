@@ -13,7 +13,7 @@
     </div>
     @endif
     <form action="/product/edit" method="post">
-    <div class="table-container">
+    <div class="table-container admin">
     <table>
         @csrf 
         <input type="hidden" name="id" value="{{$form->id}}">
@@ -27,7 +27,7 @@
             <th>カテゴリー: </th>
             <td>
                 @foreach ($categories as $category)
-                    <label for=""><input type="radio" name="category_id" value="{{$category->id}}" {{($category->id == $form->category->id)? 'checked="checked"' : ''}}>{{$category->name}}</label><br>
+                    <label><input type="radio" name="category_id" value="{{$category->id}}" {{($category->id == $form->category->id)? 'checked="checked"' : ''}}>{{$category->name}}</label><br>
                 @endforeach
             </td>
         </tr>
@@ -40,15 +40,15 @@
         <tr>
             <th>ハンドメイド？: </th>
             <td>
-                <label for=""><input type="radio" name="is_handmade" value="1" {{($form->is_handmade)? 'checked="checked"' : ''}}>YES</label>
-                <label for=""><input type="radio" name="is_handmade" value="0" {{!($form->is_handmade)? 'checked="checked"' : ''}}>NO</label>
+                <label><input type="radio" name="is_handmade" value="1" {{($form->is_handmade)? 'checked="checked"' : ''}}>YES</label>
+                <label><input type="radio" name="is_handmade" value="0" {{!($form->is_handmade)? 'checked="checked"' : ''}}>NO</label>
             </td>
         </tr>
         <tr>
             <th>輸入品？: </th>
             <td>
-                <label for=""><input type="radio" name="is_imported" value="1" {{($form->is_imported)? 'checked="checked"' : ''}}>YES</label>
-                <label for=""><input type="radio" name="is_imported" value="0" {{!($form->is_imported)? 'checked="checked"' : ''}}>NO</label>
+                <label><input type="radio" name="is_imported" value="1" {{($form->is_imported)? 'checked="checked"' : ''}}>YES</label>
+                <label><input type="radio" name="is_imported" value="0" {{!($form->is_imported)? 'checked="checked"' : ''}}>NO</label>
             </td>
         </tr>
         <tr>

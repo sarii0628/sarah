@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
     <link href="{{asset('js/slick-theme.css')}}" rel="stylesheet" type="text/css">
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('/admin/style.css')}}">
     <link rel="stylesheet" href="{{asset('/contacts/style.css')}}">
     <link rel="stylesheet" href="{{asset('/breadcrumbs/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/top-navi/style.css')}}">
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
     
@@ -42,11 +44,12 @@
             @include('components.sidebar')
         </div>
         <div class="main-wrapper">
+            @include('components.top-navi')
             @yield('main-header')
             @yield('breadcrumbs')
             @yield('login-nav')
             <h1>@yield('title')</h1>
-            @yield('search-form')
+            
             
             <div class="content">
                 @yield('content')

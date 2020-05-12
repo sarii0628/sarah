@@ -2,7 +2,7 @@
 <div class="row">
  
 <!--↓↓ 検索フォーム ↓↓-->
-<div class="col-md-4 col-md-offset-7" style="padding:20px 0; padding-right:0px;">
+<div class="item-search">
 <form class="form-inline" action="/{{$page_name}}">
   <div class="form-group">
   <input type="text" name="keyword" value="{{$keyword}}" class="form-control" placeholder="">

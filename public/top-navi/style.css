@@ -1,0 +1,13 @@
+.nav-bar {display: none;}
+
+@media (max-width: 768px) {
+    .nav-bar {display: block; text-align: center; background-color: rgba(255,255,255, 0.4); 
+            border-top: rgba(0,0,255,0.1) 4px solid; border-bottom: rgba(0,0,255,0.1) 4px solid; padding: 10px 25px;}
+    .nav-bar ul {padding-left: 0px;}
+    .nav-bar .nav-item {display: inline-block; margin: 0 10px;}
+    .nav-bar .nav-item a {display: inline-block; width: 100px; height: 30px; text-align: center; 
+                        line-height: 30px; border-radius: 10px; color: cornflowerblue; font-size: 1.3rem;
+                        letter-spacing: 1px; transition: 0.1s;}
+    .nav-bar .nav-item a:hover {background-color: cornflowerblue; color: #fff;}
+    .nav-bar .nav-item a:active {background-color: cornflowerblue; color: #fff;}
+}

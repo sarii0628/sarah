@@ -1,9 +1,9 @@
 <div class="menu">
     <ul>
-        <li><a href="/top">HOME</a></li>
-        <li><a href="/shop-info">ショップ情報</a></li>
-        <li><a href="/products">ONLINE SHOP</a></li>
-        <li><a href="/contact">お問い合わせ</a></li>
+        <li class="menu-item"><a href="/top">HOME</a></li>
+        <li class="menu-item"><a href="/shop-info">ショップ情報</a></li>
+        <li class="menu-item"><a href="/products">ONLINE SHOP</a></li>
+        <li class="menu-item"><a href="/contact">お問い合わせ</a></li>
     </ul>
 </div>
 <div class="shop-info">
@@ -14,4 +14,4 @@
         <li>営業時間： 10:00 - 18:00</li>
     </ul>
 </div>
-copyright 2020 Sarah
+copyright © 2020 Sarah

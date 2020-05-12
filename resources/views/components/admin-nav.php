@@ -1,5 +1,5 @@
-<div class="row">
-    <div id="admin-nav" class="col-md-10 col-md-offset-1">
+<div class="sub-container">
+    <div id="admin-nav" class="admin-nav-container">
         <ul>
             <li><a href="/product">商品管理</a></li>
             <li><a href="/stock">在庫管理</a></li>

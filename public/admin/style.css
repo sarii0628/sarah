@@ -8,10 +8,21 @@
 .paginate {text-align: center;}
 .paginate li {display: inline-block;}
 
-
 #admin-nav ul {margin: 20px auto 50px ; width: 80%;} 
 #admin-nav ul li {list-style: none; display: inline; margin: 20px;}
 
 .admin p:first-child {margin-bottom: 10px;}
 
 .admin label {font-weight: normal;}
+
+
+.admin-nav-sub-container {text-align: right; margin-right: 30px; margin-top: 20px;}
+.admin-nav-sub-container .btn:first-child {margin-right: 10px;}
+.admin-nav-sub-container form {display: inline-block;}
+
+@media (max-width: 320px) {
+    .admin-nav-sub-container {text-align: center; margin-right: 0px;}
+    .admin-nav-sub-container .btn:first-child {margin: 10px auto;}
+    .admin-nav-sub-container button {display: block; width: 80%;}
+    .admin-nav-sub-container form input {display: block;}
+}

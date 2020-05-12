@@ -15,18 +15,20 @@ class Confirm extends Mailable
     protected $total;
     protected $title;
     protected $text;
+    protected $items;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name = "ぷー", $total = "1000")
+    public function __construct($name = "ぷー", $total = "1000", $items)
     {
         //
         $this->title = sprintf('%sさま　購入確認＆支払い案内(Sarah)', $name);
 
         $this->name  = $name;
         $this->total = $total;
+        $this->items = $items;
 
     }
 
@@ -43,6 +45,7 @@ class Confirm extends Mailable
                     ->with([
                         'name' => $this->name,
                         'total' => $this->total,
+                        'items' => $this->items,
                     ]);
     }
 }

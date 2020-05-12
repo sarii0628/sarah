@@ -15,8 +15,8 @@
         <tr>
             <td>{{$item->getData()}}</td>
             <td>
-            @if(isset($item->stocks->first()->img_name))
-                <img src="{{asset('/storage/img/'.$item->stocks->first()->img_name)}}" width="100" height="100">
+            @if(isset($item->stocks->first()->images))
+                <img src="{{asset('/storage/img/'.$item->stocks->first()->images->first()->path)}}" width="100" height="100">
             @else 
                 <img src="{{asset('/storage/no-image.png')}}" width="100" height="100">
             @endif 
