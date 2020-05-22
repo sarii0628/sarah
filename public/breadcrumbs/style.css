@@ -1,0 +1,4 @@
+
+.breadcrumb li {display: inline;}
+/* .breadcrumb li:not(:last-child):after {content: '  >>  '; color: lightskyblue;} */
+.breadcrumb {margin: 20px; width: 90%; display: inline-block;}

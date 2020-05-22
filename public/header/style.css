@@ -1,0 +1,9 @@
+#header-wrapper {height: 80px; padding-top: 120px; margin-left: 40px;}
+#shop-name {font-size: 6rem; margin-right: 100px;  font-weight: bold; font-family: 'Caveat', cursive;;}
+#shop-name a {text-decoration: none; color: #000077;}
+@media (max-width: 768px) {
+    #header-wrapper {height: 40px; padding-top: 30px; margin-left: 20px;}
+    #shop-name { font-size: 4rem;
+        font-weight: bold; font-family: 'Caveat', cursive; display: block;}
+
+}

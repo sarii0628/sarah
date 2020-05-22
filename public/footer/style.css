@@ -1,0 +1,13 @@
+
+footer .menu li {display: inline; margin-right: 20px;}
+.shop-info ul {list-style: none; text-align: right; padding-right: 10px;} 
+footer li a {text-decoration: none; color: grey;}
+footer li a:hover {text-decoration: none; font-weight: bold; color: grey;}
+
+@media (max-width: 768px) {
+    .shop-info ul {padding-right: 10px;} 
+    footer .menu ul {width: 90%; margin-bottom: 10px;}
+    .menu .menu-item {display: inline-block; margin: 0 10px;}
+    .menu .menu-item a {display: inline-block; height: 20px; text-align: center; 
+        line-height: 30px; letter-spacing: 1px; transition: 0.1s; width: 100px;}
+}
